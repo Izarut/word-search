@@ -16,15 +16,13 @@ for (let i = 0; i < 100; i++) {
     cell.textContent = letters[Math.floor(Math.random() * letters.length)];
     cell.add
     grid.appendChild(cell);
+
+    //clicar na letra
     cell.addEventListener('click', () => {
-        if (cell.getAttribute('clicked') === 'false'){
-            cell.style.backgroundColor = 'red';
-            console.log("bb");
-            cell.setAttribute('clicked', 'true');
+        if (!cell.classList.contains('clicked')){
+            cell.classList.add('clicked');
         }else{
-            console.log("Oi");
-            cell.style.backgroundColor = 'white';
-            cell.setAttribute('clicked', 'false')
+            cell.classList.remove('clicked');
         }
     })
 }
@@ -37,8 +35,31 @@ function writeInScreen(){
     const word = response.word;
     const position = response.position;
     for(let i = 0; i < word.length; i++){
-        console.log(word[i]);
         document.getElementById(position[i]).innerText = word[i];
     }
-
 }
+
+//botao de enviar
+const submitButton = document.querySelector('.submitButton');
+submitButton.addEventListener('click', () => {
+    var clickedLetters = document.querySelectorAll('.clicked');
+    console.log(clickedLetters);
+    clickedLetters = Array.from(clickedLetters).map(cell => parseInt(cell.id));
+    console.log(clickedLetters);
+    var correctAnwser = false
+    for (let i = 0; i < response.word.length; i++) {
+        
+        if (clickedLetters[i] == response.position[i]) {
+            correctAnwser = true;
+        }else{
+            correctAnwser = false;
+            i = 101;
+        
+    }
+}
+    if (correctAnwser) {
+        console.log(':)');
+    }else{
+        console.log(':(');
+    }
+})
