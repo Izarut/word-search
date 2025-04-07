@@ -1,11 +1,31 @@
 const grid = document.getElementById('word-search');
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-const response = {
-    "id": 1,
-    "word": "SAPO",
-    "position": [59, 69, 79, 89]
+//tirar depois, são "todas" as palavras do banco
+const responseAll = [
+    {
+        "id": 1,
+        "word": "SAPO",
+        "position": [61, 72, 83, 94]
+    },
+    {
+        "id": 2,
+        "word": "ARCO",
+        "position": [48, 58, 68, 78]
+    },
+    {
+        "id": 3,
+        "word": "LARANJA",
+        "position": [27,26,25,24,23,22,21]
+    }
+];
+
+//escolhendo uma palavra aleatoria
+function getRandomItem(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
 }
+const response = getRandomItem(responseAll);
+
 
 //gerador de letras aleatorias
 for (let i = 0; i < 100; i++) {
@@ -43,9 +63,11 @@ function writeInScreen(){
 const submitButton = document.querySelector('.submitButton');
 submitButton.addEventListener('click', () => {
     var clickedLetters = document.querySelectorAll('.clicked');
-    console.log(clickedLetters);
     clickedLetters = Array.from(clickedLetters).map(cell => parseInt(cell.id));
+    response.position = response.position.sort((a, b) => a - b)
+
     console.log(clickedLetters);
+    console.log(response.position);
     var correctAnwser = false
     for (let i = 0; i < response.word.length; i++) {
         
@@ -54,12 +76,13 @@ submitButton.addEventListener('click', () => {
         }else{
             correctAnwser = false;
             i = 101;
-        
+        }
     }
-}
+    
     if (correctAnwser) {
-        console.log(':)');
+        alert('acertou :)');
     }else{
-        console.log(':(');
+        alert('errou viu bixo :(');
     }
-})
+    
+});
