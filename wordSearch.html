@@ -7,8 +7,18 @@
     <title>Caça-Palavras</title>
 </head>
 <body>
-    <div class="grid" id="word-search"></div>
-    <button class="submitButton">Enviar</button>
+    <section style="display: flex;">
+        <div class="pinto">
+            <div class="grid" id="word-search"></div>
+            <button class="submitButton" style="margin-top: 10px;">Enviar</button>
+        </div>
+
+        <div class="info-box" style="margin-left: 10px;">
+            <img id="img-word" src=".png" alt="Objeto" />
+            <p><strong>Português:</strong> <span id="pt-br">---</span></p>
+            <p><strong>Guarani:</strong> <span id="guarani">---</span></p>
+        </div>
+    </section>
 </body>
 <script src="wordSearch.js"></script>
 </html>

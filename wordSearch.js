@@ -4,19 +4,28 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 //tirar depois, são "todas" as palavras do banco
 const responseAll = [
     {
-        "id": 1,
-        "word": "SAPO",
-        "position": [61, 72, 83, 94]
+        id: 1,
+        word: "SAPO",
+        pt: "Sapo",
+        guarani: "Kururu",
+        img: ".png",
+        position: [61, 72, 83, 94]
     },
     {
-        "id": 2,
-        "word": "ARCO",
-        "position": [48, 58, 68, 78]
+        id: 2,
+        word: "ARCO",
+        pt: "Arco",
+        guarani: "Yvyrapã",
+        img: ".png",
+        position: [48, 58, 68, 78]
     },
     {
-        "id": 3,
-        "word": "LARANJA",
-        "position": [27,26,25,24,23,22,21]
+        id: 3,
+        word: "LARANJA",
+        pt: "Laranja",
+        guarani: "Pire'y",
+        img: ".png",
+        position: [27, 26, 25, 24, 23, 22, 21]
     }
 ];
 
