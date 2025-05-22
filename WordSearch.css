@@ -110,6 +110,10 @@ footer {
     font-family: 'MainFont';
     font-size: 150%;
 }
+.cell.clicked {
+    background-color: rgba(82, 82, 82, 0.5); 
+    font-weight: bold;
+}
 .cell:hover {
     background-color: rgba(82, 82, 82, 0.5);
 }
@@ -141,4 +145,28 @@ footer {
 @font-face {
     font-family: 'MainFont';
     src: url(fontes/Jersey10-Regular.ttf);
+}
+
+.game-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+}
+
+.score-panel, .word-panel {
+    background-color: rgba(158, 213, 255, 0.37);
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-family: 'MainFont';
+    font-size: 120%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+}
+
+#score, #target-word {
+    font-size: 180%;
+    margin-top: 10px;
 }

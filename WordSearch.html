@@ -10,13 +10,24 @@
 <!--cor mais leve (185,215,234) cor mais pesada (118,159,205) ou original (84,172,244)-->
 <div class="container">
     <img class="logo" src="imagens/logo/logo.png" alt="">
-    <div class="board">
-        <div class="grid" id="word-search"></div>
-        <button class="submitButton" style="margin-top: 10px;">Enviar</button>  
-    </div>
-      
-</div>
 
+    <div class="game-area">
+        <div class="score-panel">
+            <p>Pontuação:</p>
+            <p id="score">0</p>
+        </div>
+
+        <div class="board">
+            <div class="grid" id="word-search"></div>
+            <button class="submitButton">Enviar</button>  
+        </div>
+
+        <div class="word-panel">
+            <p>Encontre:</p>
+            <p id="target-word">????</p>
+        </div>
+    </div>
+</div>
 <footer>
     <img class="footer" src="imagens/footer/footer.png" alt="">
 </footer>

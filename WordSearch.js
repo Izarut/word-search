@@ -66,9 +66,17 @@ function writeInScreen(){
     for(let i = 0; i < word.length; i++){
         document.getElementById(position[i]).innerText = word[i];
     }
+    document.getElementById('target-word').innerText = response.pt;
 }
 
 //botao de enviar
+
+let score = 0;
+function updateScore() {
+    score += 10;
+    document.getElementById('score').innerText = score;
+}
+
 const submitButton = document.querySelector('.submitButton');
 submitButton.addEventListener('click', () => {
     var clickedLetters = document.querySelectorAll('.clicked');
@@ -90,8 +98,8 @@ submitButton.addEventListener('click', () => {
     
     if (correctAnwser) {
         alert('acertou :)');
+        updateScore();
     }else{
         alert('errou viu bixo :(');
     }
-    
 });
