@@ -8,7 +8,6 @@ const responseAll = [
         word: "SAPO",
         pt: "Sapo",
         guarani: "Kururu",
-        img: ".png",
         position: [61, 72, 83, 94]
     },
     {
@@ -16,7 +15,6 @@ const responseAll = [
         word: "ARCO",
         pt: "Arco",
         guarani: "Yvyrapã",
-        img: ".png",
         position: [48, 58, 68, 78]
     },
     {
@@ -24,16 +22,15 @@ const responseAll = [
         word: "LARANJA",
         pt: "Laranja",
         guarani: "Pire'y",
-        img: ".png",
         position: [27, 26, 25, 24, 23, 22, 21]
-    }
+    },
 ];
 
 //escolhendo uma palavra aleatoria
 function getRandomItem(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
-const response = getRandomItem(responseAll);
+let response = getRandomItem(responseAll);
 
 
 //gerador de letras aleatorias
@@ -69,13 +66,29 @@ function writeInScreen(){
     document.getElementById('target-word').innerText = response.pt;
 }
 
-//botao de enviar
-
+//score
 let score = 0;
 function updateScore() {
-    score += 10;
+    score += 100;
     document.getElementById('score').innerText = score;
 }
+
+//resetar o caca-palavra
+
+function resetGame() {
+    for (let i = 0; i < 100; i++) {
+        const cell = document.getElementById(i);
+        cell.classList.remove('clicked');
+
+        cell.textContent = letters[Math.floor(Math.random() * letters.length)];
+    }
+
+    response = getRandomItem(responseAll);
+    writeInScreen();
+    document.getElementById('target-word').innerText = response.pt;
+}
+
+//botao de enviar
 
 const submitButton = document.querySelector('.submitButton');
 submitButton.addEventListener('click', () => {
@@ -95,10 +108,22 @@ submitButton.addEventListener('click', () => {
             i = 101;
         }
     }
+    if (correctAnwser){
+        for (let i = 0; i < clickedLetters.length; i++) {
+        
+            if (clickedLetters[i] == response.position[i]) {
+                correctAnwser = true;
+            }else{
+                correctAnwser = false;
+                i = 101;
+            }
+        }
+    }
     
     if (correctAnwser) {
         alert('acertou :)');
         updateScore();
+        resetGame();
     }else{
         alert('errou viu bixo :(');
     }
