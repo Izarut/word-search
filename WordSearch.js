@@ -22,7 +22,7 @@ const responseAll = [
         word: "LARANJA",
         pt: "Laranja",
         guarani: "Pire'y",
-        position: [27, 26, 25, 24, 23, 22, 21]
+        position: [21,22,23,24,25,26,27]
     },
 ];
 
@@ -73,7 +73,7 @@ function updateScore() {
     document.getElementById('score').innerText = score;
 }
 
-//resetar o caca-palavra
+// resetar o jogo
 
 function resetGame() {
     for (let i = 0; i < 100; i++) {
@@ -87,6 +87,7 @@ function resetGame() {
     writeInScreen();
     document.getElementById('target-word').innerText = response.pt;
 }
+
 
 //botao de enviar
 
